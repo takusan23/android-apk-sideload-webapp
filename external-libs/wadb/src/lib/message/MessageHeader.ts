@@ -51,7 +51,7 @@ export class MessageHeader {
    * Converts the MessageHeader into a {@link DataView}.
    * @returns {DataView} a DataView with 24 bytes, with the header content.
    */
-  toDataView(): DataView {
+  toDataView(): DataView<ArrayBuffer> {
     const view = new DataView(new ArrayBuffer(24));
     const rawCmd = encodeCmd(this.cmd);
     const magic = rawCmd ^ 0xffffffff;

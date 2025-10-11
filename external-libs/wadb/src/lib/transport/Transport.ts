@@ -28,5 +28,5 @@ export interface Transport {
    * Reands `len` bytes from the transport layer.
    * @param {number} len the number of bytes to read.
    */
-  read(len: number): Promise<DataView>;
+  read(len: number): Promise<DataView<ArrayBuffer>>;
 }

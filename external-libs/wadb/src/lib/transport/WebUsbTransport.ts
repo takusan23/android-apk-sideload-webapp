@@ -68,12 +68,13 @@ export class WebUsbTransport implements Transport {
    * @param {number} len the length of date to be read
    * @returns {Promise<DataView} data read from the device
    */
-  async read(len: number): Promise<DataView> {
+  async read(len: number): Promise<DataView<ArrayBuffer>> {
     const response = await this.device.transferIn(this.endpointIn, len);
     if (!response.data) {
       throw new Error('Response didn\'t contain any data');
     }
-    return response.data;
+    // TODO キャストして良いのかな
+    return response.data as DataView<ArrayBuffer>;
   }
 
   /**

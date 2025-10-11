@@ -21,7 +21,7 @@ export class SyncFrame {
 
   }
 
-  toDataView(): DataView {
+  toDataView(): DataView<ArrayBuffer> {
     const data = new ArrayBuffer(8);
     const cmd = encodeCmd(this.cmd);
 

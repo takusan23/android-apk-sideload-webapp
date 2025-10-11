@@ -24,7 +24,7 @@ import {toB64} from '../Helpers';
 export class Message {
   constructor(
     readonly header: MessageHeader,
-    readonly data?: DataView,
+    readonly data?: DataView<ArrayBuffer>,
   ){}
 
   /**
@@ -50,7 +50,7 @@ export class Message {
    * @returns {Message} a new Message
    */
   static newMessage(
-      cmd: string, arg0: number, arg1: number, useChecksum: boolean, data?: DataView): Message {
+      cmd: string, arg0: number, arg1: number, useChecksum: boolean, data?: DataView<ArrayBuffer>): Message {
     let checksum = 0;
     let byteLength = 0;
     if (data) {
@@ -97,7 +97,7 @@ export class Message {
    * @param {boolean} useChecksum if the checksum for the data should be calculated.
    * @returns {Message} a correctly setup message with an 'AUTH' command
    */
-  static authSignature(signedToken: DataView, useChecksum: boolean): Message {
+  static authSignature(signedToken: DataView<ArrayBuffer>, useChecksum: boolean): Message {
     return Message.newMessage('AUTH', 2, 0, useChecksum, signedToken);
   }
 
@@ -107,7 +107,7 @@ export class Message {
    * @param {boolean} useChecksum if the checksum for the data should be calculated.
    * @returns {Message} a correctly setup message with an 'AUTH' command
    */
-  static authPublicKey(publicKey: DataView, useChecksum: boolean): Message {
+  static authPublicKey(publicKey: DataView<ArrayBuffer>, useChecksum: boolean): Message {
     const textEncoder = new TextEncoder();
     const data = textEncoder.encode(toB64(publicKey.buffer) + '\0');
     return Message.newMessage('AUTH', 3, 0, useChecksum, new DataView(data.buffer));

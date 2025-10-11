@@ -49,7 +49,7 @@ export class Stream {
     return true;
   }
 
-  async write(cmd: string, data?: DataView): Promise<void> {
+  async write(cmd: string, data?: DataView<ArrayBuffer>): Promise<void> {
     const message = this.newMessage(cmd, data);
     await this.client.sendMessage(message);
   }
@@ -183,7 +183,7 @@ export class Stream {
     const buffer: ArrayBuffer = await arrayBufferPromise;
 
     // 2. Splits the buffer into chunks.
-    const chunks: ArrayBufferLike[] = [];
+    const chunks: ArrayBuffer[] = [];
     for (let i = 0; i < buffer.byteLength; i += chunkSize) {
       chunks.push(buffer.slice(i, Math.min(i + chunkSize, buffer.byteLength)));
     }
@@ -212,7 +212,7 @@ export class Stream {
   }
 
 
-  private newMessage(cmd: string, data?: DataView): Message {
+  private newMessage(cmd: string, data?: DataView<ArrayBuffer>): Message {
     return Message.newMessage(
       cmd, this.localId, this.remoteId, this.options.useChecksum, data);
   }
