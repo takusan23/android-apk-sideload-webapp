@@ -59,7 +59,7 @@ export function useApkInstall() {
             transport.current = await WebUsbTransport.open(options)
             adbClient.current = new AdbClient(transport.current, options, keyStore)
             const info = await adbClient.current.connect()
-            setState({ type: 'Connected', deviceName: info.productName })
+            setState({ type: 'Connected', deviceName: info.productModel })
         } catch (e) {
             await commmonDisconnect()
             setState({ type: 'Error', error: e })

@@ -8,7 +8,7 @@ function ApkInstallComponent() {
     return (
         <div className="flex flex-col p-3 space-y-5 border border-black rounded-xl">
 
-            <h2 className="text-xl">インストール</h2>
+            <h2 className="text-xl">APK インストール</h2>
 
             <div className="flex flex-col p-2 border border-orange-500 rounded-2xl">
                 <h3 className="text-xl">現在の状態</h3>

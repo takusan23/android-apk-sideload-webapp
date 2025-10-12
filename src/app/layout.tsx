@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WebUSB + ADB",
+  title: "android-apk-sideload-webapp",
   description: "WebUSB を使って ADB コマンドを叩いて APK のサイドローディングをする Next.js サイト",
 };
 
