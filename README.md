@@ -25,13 +25,8 @@
 というわけで、`Safari / Firefox`陣営はこの`API`を提供するのをためらっています。`スマホのアプリストア`のように、アプリの審査があるなら提供してもいいが、そのような審査が存在しない環境で、素人も玄人も一緒くたに信頼するのはダメだろ・・・ってスタンスのよう
 
 # 開発環境構築
-`WSL`を強くおすすめします。`Windows / macOS / Linux`ごとに`C コード`をコンパイルする処理が存在してて、  
-`Windows`環境だと`VisualStudio`とか`Python`をこのためだけに入れる必要ができてしまう。
+`GoogleChromeLabs/wadb`ライブラリは`C？のコンパイル`が存在するが、今日では`WebCrypto API`で事足りてるので`Node.js`さえあればいいと思う
 
-`WSL`使うなら、`git clone`して`cd`して`code .`すれば`Windows`側の`VSCode`で開くことが可能！！！
-
-- `WSL`側へ`Node.js`をインストールしておいてください
-- 同様に`build-essential`も入れる（この中に Node.js 入ってるかも）
 - git clone する
 - cd する
 - 初回時は npm i する
@@ -42,7 +37,7 @@
 # 本番ビルド
 
 - npm run build
-- dist フォルダを静的サイトとして公開する
+- out フォルダを静的サイトとして公開する
 
 # special thanks
 https://github.com/GoogleChromeLabs/wadb
