@@ -26,7 +26,7 @@ export function AboutMessageCard() {
             <ul className="list-disc list-inside">
                 <li>このサイトのソースコード</li>
                 <li>
-                    <a className="text-[revert]" href="">GitHub を開く</a>
+                    <a className="text-[revert]" href="https://github.com/takusan23/android-apk-sideload-webapp">GitHub を開く</a>
                 </li>
             </ul>
 
