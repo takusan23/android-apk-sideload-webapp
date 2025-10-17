@@ -18,6 +18,7 @@ export function AboutMessageCard() {
 
             <ul className="list-disc list-inside">
                 <li>WebUSB API を利用しています。これがフロントエンド開発者に提供されているのは Google Chrome（とその系列）のみで、それ以外のブラウザでは動作しません。</li>
+                <li>それ以外の、Safari / Firefox が WebUSB API を実装していないのが悪いかと言えばそんなはずは無いと思います。だってブラウザから USB で繋いだデバイスと通信するってどうなんだろう。</li>
                 <li>
                     <a className="text-[revert]" href="https://caniuse.com/webusb">Can I use</a>
                 </li>
